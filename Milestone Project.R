@@ -98,9 +98,26 @@ print(ggplot(data = twitterCounts, aes(x=term, y=col_sums.DTMtwitter.)) + geom_b
 print(ggplot(data = blogCounts, aes(x=term, y=col_sums.DTMblog.)) + geom_bar(stat="identity") + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + xlab("Unigram (Word)") + ylab("Frequency in Sample") + ggtitle("Blog Dataset Unigram Frequency"))
 print(ggplot(data = newsCounts, aes(x=term, y=col_sums.DTMnews.)) + geom_bar(stat="identity") + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + xlab("Unigram (Word)") + ylab("Frequency in Sample") + ggtitle("News Dataset Unigram Frequency"))
 
+corpusTwitter <- tm_map(corpusTwitter, removePunctuation)
+corpusTwitter <- tm_map(corpusTwitter, removeNumbers)
+corpusTwitter <- tm_map(corpusTwitter, content_transformer(tolower))
+corpusTwitter <- tm_map(corpusTwitter, removeWords, stopwords("en"))
 corpusTwitter <- tm_map(corpusTwitter, stripWhitespace)
+corpusTwitter <- tm_map(corpusTwitter, content_transformer(lemmatize_words))
+
+corpusBlog <- tm_map(corpusBlog, removePunctuation)
+corpusBlog <- tm_map(corpusBlog, removeNumbers)
+corpusBlog <- tm_map(corpusBlog, content_transformer(tolower))
+corpusBlog <- tm_map(corpusBlog, removeWords, stopwords("en"))
 corpusBlog <- tm_map(corpusBlog, stripWhitespace)
+corpusBlog <- tm_map(corpusBlog, content_transformer(lemmatize_words))
+
+corpusNews <- tm_map(corpusNews, removePunctuation)
+corpusNews <- tm_map(corpusNews, removeNumbers)
+corpusNews <- tm_map(corpusNews, content_transformer(tolower))
+corpusNews <- tm_map(corpusNews, removeWords, stopwords("en"))
 corpusNews <- tm_map(corpusNews, stripWhitespace)
+corpusNews <- tm_map(corpusNews, content_transformer(lemmatize_words))
 
 BigramTokenizer <- function(x) NGramTokenizer(x, Weka_control(min = 2, max = 2, delimiters = " "))
 TrigramTokenizer <- function(x) NGramTokenizer(x, Weka_control(min = 3, max = 3, delimiters = " "))
