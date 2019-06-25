@@ -1,0 +1,59 @@
+---
+title: "Next Word Predictor Project"
+author: "Shayan (Sean) Taheri"
+date: "June 21, 2019"
+output:
+  ioslides_presentation: default
+  slidy_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(imager)
+```
+
+## Coursera Data Science Capstone Final Project
+
+* The final project of Data Science Capstone for Data Science Specialization from Coursera.
+* Creating a Shiny Web application for next word prediction in sentences.
+* Application Input: A small piece of text.
+* Application Output: Predicted text.
+* Usage: (a) messaging software for moden smart devices. (b) error correction. (c) automated speech recognition.
+* Leveraging R-based text mining, natural language processing, data wrangling, and model building packages in developing this application.
+
+## Foundations: N-Grams Models
+
+* Using a statistical language model called N-Grams into our algorithm,
+* In N-Grams, the conditional probability for a word given a previous limited sequences of N-1 words is estimated based on the MArkov's assumption.
+* The N-Grams models are trained and built using three different datasets namely: news; blogs; and twitter .
+* These datasets are cleaned based on their special characters, profanities, links, and hashtags.
+* They are used for both tarining and testing models.
+* Producing  a set of Unigrams, Bigrams, Trigrams, and 4-grams.
+* Pruning these production of data for reducing their size based on the frequencies below one to three.
+
+## Operation
+
+* Using a small random sampling of the data for running the code and the application on an ordinary platform.
+* Tokenizing our data into "N-grams" (which means sequences of N words) found in a given text corpus.
+* Further aggregating the data into frequency data frames.
+* The developed algorithm searches for words inside the data frames.
+* Applying N-grams up to the level of six.
+* Algorithm Function: (a) Taking at most five words as input for the model. (b) searching for a match in the six-gram data frame. (c) finding a match that prints out the sixth word. (d) continuation the search by downgrading the level to five if no match is found. (e) termination of the operation once a match is found. (f) printing an error message if there is no match.
+
+## Example Operation
+
+The screenshot below shows how the developed application performs correctly in the task of next word prediction.
+
+```{r }
+myimg <- load.image("C:/Users/shaya/Desktop/Data_Science_Capstone/Capture.png")
+plot(myimg, axes = FALSE)
+```
+
+## References
+
+* Access the developed application at: https://shtaheri.shinyapps.io/Data_Science_Capstone
+* Finding all the source files for the project at: https://github.com/shayan-taheri/Data_Science_Capstone
+* HC Corpora: http://www.corpora.heliohost.org
+* Stanford NLP Course: https://www.coursera.org/course/nlp
+* Chen-Goodman 1999: http://u.cs.biu.ac.il/~yogo/courses/mt2013/papers/chen-goodman-99.pdf
+* Kneser Ney Smoothing: http://www.foldl.me/2014/kneser-ney-smoothing

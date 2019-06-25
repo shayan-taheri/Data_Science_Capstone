@@ -1,4 +1,4 @@
-name: Document
+name: Publish Document
 title:
 username:
 account: rpubs
@@ -6,5 +6,5 @@ server: rpubs.com
 hostUrl: rpubs.com
 appId: https://api.rpubs.com/api/v1/document/507940/10f6c385bc0a4adf936a7a2f524bd2ca
 bundleId: https://api.rpubs.com/api/v1/document/507940/10f6c385bc0a4adf936a7a2f524bd2ca
-url: http://rpubs.com/publish/claim/507940/788a47ee3fa440c0834091ec3d72b31c
-when: 1561453896.48529
+url: http://rpubs.com/shtaheri/507940/edit
+when: 1561454039.23684
